@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Profesinės sąjungos: 0,6 % GPM parama, gavėjų paieška, 2020–2025 m. istorija ir palyginimas.">
+  <title>Profesinės sąjungos · 0,6 % GPM parama</title>
+  <link rel="stylesheet" href="styles.css?v=header-navigation-2">
+  <link rel="preload" href="assets/fonts/publicsans/PublicSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/slabo13px/Slabo13px-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <script defer src="vendor/chart.umd.js"></script><script defer src="app.js?v=recipient-pages-1"></script>
+</head>
+<body data-scope="unions">
+<a class="skip" href="#results">Pereiti prie rezultatų</a>
+<header class="header wrap">
+  <a class="brand" href="index.html"><span class="brand-mark">0,6%</span><span>GPM parama<small>Duomenys visiems, kam smalsu.</small></span></a>
+<nav class="recipient-pages" aria-label="Paramos gavėjų grupės">
+  <a href="index.html">Visi gavėjai</a>
+  <a href="politines-partijos.html">Politinės partijos</a>
+  <a href="profesines-sajungos.html" aria-current="page">Profesinės sąjungos</a>
+</nav>
+</header>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-photo" src="assets/river-linocut-exact.png" alt="" fetchpriority="high" width="2172" height="724">
+  <div class="wrap hero-content">
+    <h1 id="hero-title">Profesinės sąjungos</h1>
+    <p class="hero-description">Atraskite gavėją ir jo paramos istoriją.</p>
+    <form id="search-form" role="search">
+      <label for="search" class="sr-only">Organizacijos pavadinimas arba kodas</label>
+      <input id="search" type="search" placeholder="Organizacijos pavadinimas arba kodas" autocomplete="off" maxlength="160" disabled>
+      <button type="submit" disabled id="search-button">Ieškoti</button>
+    </form>
+
+  </div>
+</section>
+<section class="stats-band" aria-label="Pasirinktų metų apžvalga"><div class="wrap stats" id="stats"><p>Įkeliami duomenys…</p></div></section>
+<section class="wrap directory" id="results" tabindex="-1">
+  <div class="section-heading"><div><p class="eyebrow">PARAMOS GAVĖJŲ PAIEŠKA</p><h2>Profesinės sąjungos</h2></div><span class="status-label">2020–2025 m. duomenys</span></div>
+  <p class="footnote">Rodomi tik įrašai, kurių atitinkamų metų VMI teisinė forma yra „Profesinė sąjunga ar susivienijimas“. Apžvalgos sumos apima tik šią grupę. Istoriniai įrašai nepatvirtina dabartinės teisės gauti paramą.</p>
+  <div class="filters">
+    <label>Metai<select id="year" disabled></select></label>
+    <label>Savivaldybė<select id="municipality" disabled><option value="">Visos savivaldybės</option></select></label>
+    <label>Apskaičiuotos sumos grupė<select id="size" disabled><option value="">Visi dydžiai</option><option value="0">Labai maža: 0–1 000 €</option><option value="1">Maža: &gt;1 000–10 000 €</option><option value="2">Vidutinė: &gt;10 000–50 000 €</option><option value="3">Didelė: &gt;50 000–100 000 €</option><option value="4">Labai didelė: &gt;100 000 €</option></select></label>
+    <label>Rikiuoti<select id="sort" disabled><option value="amount">Apskaičiuota: nuo didžiausios</option><option value="transferred">Pervesta: nuo didžiausios</option><option value="name">Pavadinimas: A–Ž</option><option value="requests">Prašymai: nuo didžiausio</option></select></label>
+  </div>
+  <div class="result-meta"><p id="result-count" role="status" aria-live="polite">Įkeliama…</p><button class="text-button" id="reset">Išvalyti filtrus</button></div>
+  <div id="error" role="alert" hidden><p>Nepavyko įkelti duomenų. Patikrinkite ryšį ir bandykite dar kartą.</p><button id="retry">Bandyti dar kartą</button></div>
+  <div class="table-scroll"><table class="results-table"><thead><tr><th scope="col">Organizacija</th><th scope="col">Savivaldybė*</th><th scope="col" class="numeric">Apskaičiuota suma</th><th scope="col" class="numeric">Pervesta PMD</th><th scope="col" class="numeric">Prašymai</th><th scope="col"><span class="sr-only">Palyginimas</span></th></tr></thead><tbody id="result-body"></tbody></table></div>
+  <div id="empty" class="empty" hidden><h3>Organizacijų nerasta</h3><p>Pabandykite kitą pavadinimą arba išvalykite filtrus.</p></div>
+  <div class="pagination"><button id="previous" class="secondary" disabled>Ankstesni</button><span id="page-label"></span><button id="next" class="secondary" disabled>Kiti</button></div>
+  <p class="footnote">Apskaičiuota ir pervesta paramos suma gali skirtis, nes į pervestą sumą įtraukiami ir ankstesnių metų perskaičiavimai. Metai nurodomi pagal VMI duomenų lentelę, o ne pagal pinigų pervedimo datą. Naudojamame šaltinyje nėra duomenų apie 2025 m. pervestas sumas. „Nežinoma“ reiškia, kad duomenų nėra, o ne kad organizacija gavo 0 €.</p>
+  <p class="footnote">Savivaldybė* nurodoma pagal paskutinę žinomą organizacijos registracijos vietą, ne pagal rėmėjų gyvenamąją ar organizacijos veiklos vietą.</p>
+</section>
+<section id="detail" class="detail-band" hidden tabindex="-1"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow" id="detail-kind">ORGANIZACIJOS ISTORIJA</p><h2 id="detail-title"></h2><p id="detail-subtitle"></p></div><button id="close-detail" class="secondary">Uždaryti</button></div>
+  <div id="selected-list" class="selected-list"></div>
+  <div class="chart-heading"><h3 id="chart-title">Apskaičiuota suma</h3><label>Rodiklis <select id="chart-measure"><option value="1">Apskaičiuota suma</option><option value="3">Pervesta PMD</option></select></label></div>
+  <div class="chart-container"><canvas id="history-chart" role="img" aria-label="Metinė organizacijų parama. Tikslios reikšmės pateiktos lentelėje žemiau."></canvas></div>
+  <p id="chart-error" hidden>Diagramos įkelti nepavyko. Duomenys pateikti lentelėje.</p>
+  <div class="detail-actions"><h3>Metų duomenys</h3><button class="secondary" id="share">Kopijuoti nuorodą</button></div>
+  <p id="share-status" role="status"></p>
+  <div class="table-scroll"><table id="history-table"><thead><tr><th>Organizacija</th><th>Šaltinio metai</th><th class="numeric">Apskaičiuota suma</th><th class="numeric">Pervesta PMD</th><th class="numeric">Prašymai</th><th class="numeric">Apskaičiuota vienam prašymui</th></tr></thead><tbody></tbody></table></div>
+  <p class="footnote">Pervesta PMD pateikiama kaip šaltinyje, įskaitant perskaičiavimus už ankstesnius metus. Tai nėra vien pasirinktų metų prašymams tenkanti suma. Apskaičiuotai sumai taikoma projekto korekcija: teigiama suma su 0 prašymų pakeičiama į 0. Pervestai sumai ši korekcija netaikoma.</p>
+  <p class="footnote">„Nėra įrašo“ nėra nulinė parama. Vidurkis vienam prašymui nėra atskiro prašymo suma. Prašymų skaičius nebūtinai sutampa su žmonių skaičiumi.</p>
+</div></section>
+<section class="about-band" id="about"><div class="wrap about-grid"><div><p class="eyebrow">APIE PROJEKTĄ</p><h2>Duomenys visiems, kam smalsu.</h2></div><div>
+  <p>Nepriklausomas, tobulinamas Lietuvos GPM paramos analizės projektas. Šiame puslapyje: profesinės sąjungos ir 0,6 % GPM parama. Pateikiami atviri VMI 2020–2025 metų duomenys.</p>
+  <p>Didesnė parama savaime nereiškia didesnio organizacijos poveikio. Istoriniai įrašai nepatvirtina dabartinės teisės gauti paramą. Sumos nekoreguotos pagal infliaciją.</p>
+  <p>Svetainė kurta pasitelkiant dirbtinio intelekto įrankius. Dekoratyvinė iliustracija sugeneruota naudojant DI ir redaguota šiam projektui.</p>
+  <p id="data-date"></p><a href="https://github.com/Ramuneid/lithuania-gpm-support-analysis/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">Metodika ir duomenų apibrėžimai ↗</a>
+</div></div></section>
+</main>
+<aside id="compare-tray" class="compare-tray" hidden aria-label="Pasirinktos organizacijos"><div class="wrap"><span id="tray-label"></span><div><button id="clear-compare" class="text-button">Išvalyti</button><button id="open-compare">Palyginti</button></div></div></aside>
+<div class="sr-only" id="notice" role="status" aria-live="polite"></div>
+<footer class="wrap footer"><span>GPM parama · Ramunės Idzelytės projektas</span><span>Turite klausimų ar pastebėjimų? Rašykite <a href="https://www.linkedin.com/in/idzelyte" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</span><a href="https://github.com/Ramuneid/lithuania-gpm-support-analysis">GitHub</a></footer>
+<noscript><p class="wrap">Paieškai reikalingas JavaScript. Analizės užrašinės prieinamos projekto GitHub saugykloje.</p></noscript>
+</body></html>
