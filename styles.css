@@ -10,7 +10,22 @@
   font-family:"Public Sans",Arial,sans-serif;color:var(--ink);background:var(--paper);
 }
 *{box-sizing:border-box;letter-spacing:0}
-body{margin:0}
+body{margin:0;padding-bottom:var(--consent-height,0px)}
+.privacy-links{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding-block:12px 24px;font-size:13px}
+.privacy-content{max-width:800px;padding-block:40px}
+.privacy-content h1{font-size:40px}
+.privacy-content h2{font-size:26px;margin-top:32px}
+.consent-banner{position:fixed;bottom:0;left:0;right:0;z-index:100;background:#FFF8D9;border-top:1px solid #E5DDBB}
+.consent-banner[hidden]{display:none}
+.consent-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.consent-inner p{margin:0;font-size:14px}
+.consent-actions{display:flex;gap:12px;flex-shrink:0}
+.consent-actions button{background:transparent;color:var(--ink);padding:10px 20px}
+.consent-actions button:hover{background:#F5EBC1}
+.consent-actions button[data-choice="accepted"]{background:var(--ink);color:#fff}
+.consent-actions button[data-choice="accepted"]:hover{background:#364236}
+body .compare-tray{bottom:var(--consent-height,0px)}
+@media(max-width:760px){.consent-inner{flex-direction:column;align-items:stretch;gap:12px}.consent-actions button{flex:1}}
 a{color:inherit;text-underline-offset:4px;text-decoration-thickness:1px}
 button,input,select{font:inherit;border-radius:0}
 button,a,input,select{touch-action:manipulation}
