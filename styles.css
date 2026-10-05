@@ -11,7 +11,6 @@
 }
 *{box-sizing:border-box;letter-spacing:0}
 body{margin:0;padding-bottom:var(--consent-height,0px)}
-.privacy-links{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding-block:12px 24px;font-size:13px}
 .privacy-content{max-width:800px;padding-block:40px}
 .privacy-content h1{font-size:40px}
 .privacy-content h2{font-size:26px;margin-top:32px}
@@ -120,8 +119,12 @@ td small{display:block;font-size:11px;color:var(--muted);margin-top:4px}
 .compare-tray{position:fixed;bottom:0;left:0;right:0;background:var(--paper);border-top:3px double var(--ink);z-index:5}
 .compare-tray>.wrap{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-block:12px;font-size:13px}
 .compare-tray .wrap>div{display:flex;gap:24px;align-items:center}
-.footer{display:flex;gap:20px;flex-wrap:wrap;padding-block:26px 105px;font-size:11px;color:var(--muted)}
-.footer span{margin-right:auto}
+.footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:26px 32px;font-size:11px;line-height:1.6;color:var(--muted)}
+.footer-project,.footer-privacy{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.footer-contact{min-width:0}
+.footer-privacy{margin-left:auto}
+.footer .text-button{font:inherit;padding:0;color:inherit}
+@media(max-width:1100px){.footer{flex-wrap:wrap}.footer-project,.footer-privacy{flex-wrap:wrap;flex-shrink:1}}
 #error{background:#f7e3ca;padding:24px;border-left:3px solid var(--focus)}
 [hidden]{display:none!important}
 .sr-only{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap}
@@ -181,7 +184,7 @@ td small{display:block;font-size:11px;color:var(--muted);margin-top:4px}
   .compare-tray button{font-size:12px;padding:10px}
   .compare-tray .wrap>div{gap:10px}
   .footer{gap:15px}
-  .footer span{width:100%}
+  .footer-project,.footer-contact{width:100%}
   .detail-actions{align-items:start}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
