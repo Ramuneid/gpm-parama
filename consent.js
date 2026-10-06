@@ -32,10 +32,17 @@
     choice = button.dataset.choice;
     try { localStorage.setItem(key, choice); } catch (_) { /* Choice still applies to this page. */ }
     show(false);
+    const main = document.querySelector('main');
+    main?.setAttribute('tabindex', '-1');
+    main?.focus({preventScroll: true});
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
     // Reload removes the already-running beacon when consent is withdrawn.
-    if (choice === 'rejected' && loaded) { location.reload(); return; }
+    if (choice === 'rejected' && loaded) {
+      window.history.scrollRestoration = 'manual';
+      location.reload();
+      return;
+    }
     if (choice === 'accepted') enable();
-    document.querySelector('[data-consent-settings]')?.focus();
   });
   document.querySelectorAll('[data-consent-settings]').forEach(button => {
     button.hidden = false;
