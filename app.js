@@ -75,12 +75,19 @@ function applyFilters() {
   const summary = state.data.summary.find(row => row.year === year);
   $('stats').replaceChildren(...[
     [summary.amount, 'money', `${year} m. apskaičiuota suma`],
-    [summary.transferred, 'money', `${year} m. pervesta suma`],
-    [summary.recipients, 'number', `${year} m. gavėjų su įrašu`],
+    [summary.transferred, 'money', `${year} m. pervesta suma`, year === 2025 && summary.transferred == null],
+    [summary.recipients, 'number', `${year} m. paramos gavėjų`],
     [summary.requests, 'number', `${year} m. prašymų`],
-  ].map(([value, kind, label]) => {
+  ].map(([value, kind, label, hasNote]) => {
     const stat = element('div', null, 'stat');
-    stat.append(element('span', fmt(value, kind), 'stat-value'), element('span', label, 'stat-label'));
+    const displayValue = element('span', fmt(value, kind), 'stat-value');
+    if (hasNote) {
+      const marker = element('sup', '*');
+      marker.setAttribute('aria-hidden', 'true');
+      displayValue.append(marker);
+      displayValue.setAttribute('aria-describedby', 'transfer-note');
+    }
+    stat.append(displayValue, element('span', label, 'stat-label'));
     return stat;
   }));
   renderResults();
@@ -105,6 +112,7 @@ function renderResults() {
     button.addEventListener('click', () => toggleCompare(org.code));
     action.append(button); tr.append(action); return tr;
   }));
+  window.GpmTerms?.refresh();
   const pages = Math.max(1, Math.ceil(count / state.perPage));
   $('page-label').textContent = count ? `${state.page + 1} / ${pages}` : '0 rezultatų';
   $('previous').disabled = state.page === 0;

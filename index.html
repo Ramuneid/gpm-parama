@@ -4,10 +4,10 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Lietuvos GPM paramos gavėjai: organizacijų paieška, 2020–2025 m. finansavimo istorija ir palyginimas.">
   <title>GPM parama · Organizacijų paieška</title>
-  <link rel="stylesheet" href="styles.css?v=amount-labels-1">
+  <link rel="stylesheet" href="styles.css?v=term-help-2">
   <link rel="preload" href="assets/fonts/publicsans/PublicSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/slabo13px/Slabo13px-Regular.ttf" as="font" type="font/ttf" crossorigin>
-  <script defer src="vendor/chart.umd.js"></script><script defer src="app.js?v=amount-labels-1"></script>
+  <script defer src="vendor/chart.umd.js"></script><script defer src="terms.js?v=3"></script><script defer src="app.js?v=missing-note-1"></script>
 </head>
 <body>
 <a class="skip" href="#results">Pereiti prie rezultatų</a>
@@ -44,11 +44,10 @@
   </div>
   <div class="result-meta"><p id="result-count" role="status" aria-live="polite">Įkeliama…</p><button class="text-button" id="reset">Išvalyti filtrus</button></div>
   <div id="error" role="alert" hidden><p>Nepavyko įkelti duomenų. Patikrinkite ryšį ir bandykite dar kartą.</p><button id="retry">Bandyti dar kartą</button></div>
-  <div class="table-scroll"><table class="results-table"><thead><tr><th scope="col">Organizacija</th><th scope="col">Savivaldybė*</th><th scope="col" class="numeric">Apskaičiuota suma</th><th scope="col" class="numeric">Pervesta suma</th><th scope="col" class="numeric">Prašymai</th><th scope="col"><span class="sr-only">Palyginimas</span></th></tr></thead><tbody id="result-body"></tbody></table></div>
+  <div class="table-scroll"><table class="results-table"><thead><tr><th scope="col">Organizacija</th><th scope="col">Savivaldybė</th><th scope="col" class="numeric">Apskaičiuota suma</th><th scope="col" class="numeric">Pervesta suma</th><th scope="col" class="numeric">Prašymai</th><th scope="col"><span class="sr-only">Palyginimas</span></th></tr></thead><tbody id="result-body"></tbody></table></div>
   <div id="empty" class="empty" hidden><h3>Organizacijų nerasta</h3><p>Pabandykite kitą pavadinimą arba išvalykite filtrus.</p></div>
   <div class="pagination"><button id="previous" class="secondary" disabled>Ankstesni</button><span id="page-label"></span><button id="next" class="secondary" disabled>Kiti</button></div>
-  <p class="footnote">Apskaičiuota ir pervesta paramos suma gali skirtis, nes į pervestą sumą įtraukiami ir ankstesnių metų perskaičiavimai. Metai nurodomi pagal VMI duomenų lentelę, o ne pagal pinigų pervedimo datą. Naudojamame šaltinyje nėra duomenų apie 2025 m. pervestas sumas. „Nežinoma“ reiškia, kad duomenų nėra, o ne kad organizacija gavo 0 €.</p>
-  <p class="footnote">Savivaldybė* nurodoma pagal paskutinę žinomą organizacijos registracijos vietą, ne pagal rėmėjų gyvenamąją ar organizacijos veiklos vietą.</p>
+  <p class="footnote" id="transfer-note"><strong>* „Nežinoma“:</strong> Naudojamame šaltinyje nėra duomenų apie 2025 m. pervestas sumas.</p>
 </section>
 <section id="detail" class="detail-band" hidden tabindex="-1"><div class="wrap">
   <div class="section-heading"><div><p class="eyebrow" id="detail-kind">ORGANIZACIJOS ISTORIJA</p><h2 id="detail-title"></h2><p id="detail-subtitle"></p></div><button id="close-detail" class="secondary">Uždaryti</button></div>
