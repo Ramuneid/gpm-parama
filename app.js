@@ -74,8 +74,8 @@ function applyFilters() {
   });
   const summary = state.data.summary.find(row => row.year === year);
   $('stats').replaceChildren(...[
-    [summary.amount, 'money', `${year} m. apskaičiuota parama`],
-    [summary.transferred, 'money', `${year} m. pervesta PMD`],
+    [summary.amount, 'money', `${year} m. apskaičiuota suma`],
+    [summary.transferred, 'money', `${year} m. pervesta suma`],
     [summary.recipients, 'number', `${year} m. gavėjų su įrašu`],
     [summary.requests, 'number', `${year} m. prašymų`],
   ].map(([value, kind, label]) => {
@@ -134,7 +134,7 @@ function route() {
 }
 function showDetail(codes) {
   const measure = Number($('chart-measure').value);
-  const measureLabel = measure === 3 ? 'Pervesta PMD' : 'Apskaičiuota suma';
+  const measureLabel = measure === 3 ? 'Pervesta suma' : 'Apskaičiuota suma';
   $('chart-title').textContent = measureLabel;
   $('history-chart').setAttribute('aria-label', measureLabel + '. Reikšmės pateiktos lentelėje.');
   state.detailCodes = codes;
