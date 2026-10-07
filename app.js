@@ -81,11 +81,8 @@ function applyFilters() {
   ].map(([value, kind, label, hasNote]) => {
     const stat = element('div', null, 'stat');
     const displayValue = element('span', fmt(value, kind), 'stat-value');
-    if (hasNote) {
-      const marker = element('sup', '*');
-      marker.setAttribute('aria-hidden', 'true');
-      displayValue.append(marker);
-      displayValue.setAttribute('aria-describedby', 'transfer-note');
+    if (hasNote && window.GpmTerms) {
+      displayValue.replaceChildren(window.GpmTerms.label('Nežinoma (2025 m. pervesta suma)', 'Nežinoma'));
     }
     stat.append(displayValue, element('span', label, 'stat-label'));
     return stat;

@@ -8,6 +8,7 @@
     ['Prašymai', 'Prašymų skirti GPM paramą organizacijai skaičius, nebūtinai sutampantis su unikalių rėmėjų skaičiumi.'],
     ['Apskaičiuota vienam prašymui', 'Vidutinė paramos suma vienam prašymui: bendra apskaičiuota suma padalijama iš prašymų skaičiaus. Atskirų prašymų sumos gali skirtis.'],
     ['Metai', 'Metai nurodomi pagal VMI duomenų lentelę, o ne pagal pinigų pervedimo datą.'],
+    ['Nežinoma (2025 m. pervesta suma)', 'Naudojamame šaltinyje nėra duomenų apie 2025 m. pervestas sumas.'],
   ]);
   const popups = new Map();
   let active = null, pinned = false, closeTimer;
@@ -54,11 +55,11 @@
     document.body.append(popup);
     popups.set(term, popup);
   }
-  function label(term) {
+  function label(term, displayText = term) {
     const wrapper = document.createElement('span');
     wrapper.className = 'term-label';
     const text = document.createElement('span');
-    text.textContent = term;
+    text.textContent = displayText;
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'term-help';
@@ -99,6 +100,6 @@
   document.addEventListener('scroll', event => {
     if (active && event.target !== popups.get(active.dataset.term)) hide();
   }, true);
-  window.GpmTerms = {refresh};
+  window.GpmTerms = {refresh, label};
   refresh();
 })();
